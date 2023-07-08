@@ -25,7 +25,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: nirulabs/app:latest
+          tags: nirulabs/${{github.run_number}}
           
       - name: Log in with Azure
         uses: azure/login@v1
@@ -35,5 +35,5 @@ jobs:
         run: |
            ls
            pwd
-           az webapp config container set --name GenApp123 --resource-group for-devops --docker-custom-image-name nirulabs/app
+           az webapp config container set --name GenApp123 --resource-group for-devops --docker-custom-image-name nirulabs/${{github.run_number}}
       
