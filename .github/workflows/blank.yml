@@ -11,4 +11,4 @@ jobs:
           uname -a
           id
           whoami
-          az webapp config container set --name GenApp123 --resource-group for-devops --docker-custom-image-name nirulabs/coffee
+          az webapp config container set --name GenApp123 --resource-group for-devops --docker-custom-image-name nirulabs/tea
