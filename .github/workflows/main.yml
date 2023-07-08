@@ -11,10 +11,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build
-        run: |
-           docker build -t webapp:v1 .
-           docker push  webapp:v1
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: nirulabs/app:latest
+          
       - name: Log in with Azure
         uses: azure/login@v1
         with:
@@ -23,5 +26,5 @@ jobs:
         run: |
            ls
            pwd
-           az group list
+           az webapp config container set --name GenApp123 --resource-group for-devops --docker-custom-image-name nirulabs/app
       
