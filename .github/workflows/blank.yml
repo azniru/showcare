@@ -11,3 +11,5 @@ jobs:
           uname -a
           id
           whoami
+          az account list-locations
+          az resource list
