@@ -12,6 +12,10 @@ jobs:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
       - name: 'Run Azure CLI commands'
         run: |
+           ls
+           pwd
+           
            az account show
            az group list
-           pwd
+           docker ps
+       
