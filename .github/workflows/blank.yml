@@ -1,14 +1,23 @@
-name: shell commands
+name: Run Azure Login with OpenID Connect
 on: [push]
+
+permissions:
+      id-token: write
+      contents: read
+      
 jobs: 
-  run-shell-command: 
-    runs-on: ubuntu-self-hosted
-    steps: 
-      - name: echo a string
-        run: echo "Hello World!!"
-      - name: multiline script
-        run: | 
-          uname -a
-          id
-          whoami
-          az webapp config container set --name GenApp123 --resource-group for-devops --docker-custom-image-name nirulabs/tea
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Az CLI login'
+      uses: azure/login@v1
+      with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+  
+    - name: 'Run Azure CLI commands'
+      run: |
+          az account show
+          az group list
+          pwd
