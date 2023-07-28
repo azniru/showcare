@@ -54,7 +54,7 @@ export default function App() {
       </View>}
       {
         !showRegistration && <View>
-          <Text style={styles.bodyText}>Welcome to Genzeon, {name}</Text>
+          <Text style={styles.bodyText}>Welcome to Nirulabs, {name}</Text>
           <Text style={{...styles.registeredText,marginTop:50}}>Department : {getDepartmentLabel(department)}</Text>
         </View>
       }
