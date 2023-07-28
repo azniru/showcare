@@ -25,7 +25,7 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="auto" />
       {showRegistration && <View>
-        <Text style={styles.titleText}>Genzeon</Text>
+        <Text style={styles.titleText}>NiruLabs</Text>
         <TextInput
           style={styles.input}
           onChangeText={setName}
